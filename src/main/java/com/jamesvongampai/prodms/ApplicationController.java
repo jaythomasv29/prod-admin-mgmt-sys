@@ -20,13 +20,20 @@ public class ApplicationController {
   @GetMapping("/accounts")
   public String getAccountsIndex() { return "/accounts/index"; }
 
+  @GetMapping("/helpdesk")
+  public String getHelpDeskIndex() { return "/helpdesk/index"; }
 
+  @GetMapping("/settings")
+  public String getSettingsIndex() { return "/settings/index"; }
 
-  @GetMapping("/products")
+  @GetMapping("/logistics")
   public String getProductsIndex() { return "/products/index"; }
 
+  @GetMapping("/payroll")
+  public String getPayrollIndex() { return "/payroll/index"; }
+
   @GetMapping("/employees")
-  public String getPayrollIndex() { return "/employees/index"; }
+  public String getEmployeeIndex() { return "/employees/index"; }
 
 }
 

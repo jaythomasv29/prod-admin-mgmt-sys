@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="https://www.ultaq.net.nz/thymeleaf/layout" layout:decorate="_layout">
+
+<body>
+<div layout:fragment="content">
+    <div class="pagetitle">
+      <h1>Home</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+          <li class="breadcrumb-item active">Settings</li>
+        </ol>
+      </nav>
+    </div>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Countries</h5>
+          <p class="card-text">View and Manage Countries Entity</p>
+          <a class="btn btn-primary" th:href="@{/countries/all}">Manage Countries</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">States</h5>
+          <p class="card-text">View and Manage State Entity</p>
+          <a class="btn btn-primary" th:href="@{/countries}">Manage States</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Deals</h5>
+          <p class="card-text">View and Manage Deal Details</p>
+          <a class="btn btn-primary" th:href="@{/countries}">Manage Deals</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Users</h5>
+          <p class="card-text">View and Manage User Data</p>
+          <a class="btn btn-primary" th:href="@{/countries}">Manage Users</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Accounts</h5>
+          <p class="card-text">View and Manage Accounts</p>
+          <a class="btn btn-primary" th:href="@{/countries}">Manage Accounts</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+</div>
+</body>
+</html>
