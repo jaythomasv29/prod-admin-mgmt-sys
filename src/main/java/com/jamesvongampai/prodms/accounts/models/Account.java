@@ -2,16 +2,19 @@ package com.jamesvongampai.prodms.accounts.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jamesvongampai.prodms.accounts.dtos.AccountDto;
+import com.jamesvongampai.prodms.accounts.repositories.RoleRepository;
 import com.jamesvongampai.prodms.deals.models.Deal;
 import com.jamesvongampai.prodms.settings.models.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Account extends BaseEntity {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -31,12 +35,10 @@ public class Account extends BaseEntity {
   private String password;
   @Column(name = "telephone", unique = true)
   private String telephone;
-
   private String gender;
 
-//  @Column(name = "creation_date")
-//  @CreationTimestamp
-//  private LocalDateTime creationDate;
+  @ManyToMany(fetch = FetchType.EAGER)
+  private List<Role> roles = new ArrayList<>();
 
   @JsonIgnore
   @OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})

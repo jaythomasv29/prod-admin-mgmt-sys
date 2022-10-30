@@ -15,17 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 @RequestMapping("/countries")
 @Controller
-//@RestController
+
 @AllArgsConstructor
 public class CountryController {
   private CountryService countryService;
 
-  @GetMapping("/all")
-  public String getAllCountries(Model model) {
-    model.addAttribute("countries", countryService.getAllCountries());
-    return "countriesTable";
-  }
+//  @GetMapping()
+//    public String getAllCountries(Model model) {
+//      model.addAttribute("countries", countryService.getAllCountries());
+//    return "countriesTable";
+//  }
 //  public ResponseEntity<List<Country>> getAllCountries() {
 //    return new ResponseEntity<>(countryService.getAllCountries(), HttpStatus.OK);
+//  }
+//  public String getAllCountries(Model model) {
+//      model.addAttribute("countries", countryService.getAllCountries());
+//    return "countriesTable";
 //  }
 }
