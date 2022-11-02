@@ -7,9 +7,7 @@ import com.jamesvongampai.prodms.accounts.models.Role;
 import com.jamesvongampai.prodms.accounts.repositories.AccountRepository;
 import com.jamesvongampai.prodms.accounts.repositories.RoleRepository;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,7 +26,6 @@ import java.util.Optional;
 public class AccountServiceImpl implements AccountService, UserDetailsService {
   private AccountRepository accountRepository;
   private RoleRepository roleRepository;
-//  @Autowired
   private PasswordEncoder crypt;
 
   @Override
@@ -47,6 +44,7 @@ public class AccountServiceImpl implements AccountService, UserDetailsService {
   @Override
   public Account saveAccount(AccountDto accountDto) {
     Account account = new Account(accountDto);
+    System.out.println(account);
     Role role = roleRepository.findByName("ROLE_USER");
     account.getRoles().add(role);
     account.setPassword(crypt.encode(accountDto.getPassword()));  // hash password before saving to db

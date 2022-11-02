@@ -38,16 +38,14 @@ public class ProdMsApplication implements CommandLineRunner {
 			accountService.saveRole(new RoleDto(null, "ROLE_MANAGER"));
 			accountService.saveRole(new RoleDto(null, "ROLE_ADMIN"));
 			accountService.saveRole(new RoleDto(null, "ROLE_SUPER_ADMIN"));
-			accountService.saveAccount(new AccountDto(null, "james", "james@email.com", "pass123", "4087477721", "male", null, new ArrayList<>(), new ArrayList<>()));
-			accountService.saveAccount(new AccountDto(null, "jantira", "jantira@email.com", "pass123", "4087477722", "male", null, new ArrayList<>(), new ArrayList<>()));
-			accountService.saveAccount(new AccountDto(null, "jimmy", "jimmy@email.com", "pass123", "4087477723", "male", null, new ArrayList<>(), new ArrayList<>()));
+			accountService.saveAccount(new AccountDto("james", "james@email.com", "pass123", "4087477721", "male"));
+			accountService.saveAccount(new AccountDto("jantira", "jantira@email.com", "pass123", "4087477722", "male"));
+			accountService.saveAccount(new AccountDto("jimmy", "jimmy@email.com", "pass123", "4087477723", "male"));
 //
 			accountService.addRoleToAccount("james@email.com", "ROLE_SUPER_ADMIN");
 			accountService.addRoleToAccount("james@email.com", "ROLE_MANAGER");
-			accountService.addRoleToAccount("james@email.com", "ROLE_USER");
-			accountService.addRoleToAccount("james@email.com", "ROLE_MANAGER");
+
 			accountService.addRoleToAccount("jantira@email.com", "ROLE_ADMIN");
-			accountService.addRoleToAccount("jimmy@email.com", "ROLE_USER");
 		};
 	}
 

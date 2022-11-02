@@ -1,6 +1,7 @@
 package com.jamesvongampai.prodms.accounts.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jamesvongampai.prodms.accounts.dtos.BusinessDto;
 import com.jamesvongampai.prodms.deals.models.Deal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,13 @@ public class Business {
   private String telephone;
   private String email;
 
-  @JsonIgnore
   @OneToMany(mappedBy = "business", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-  private List<Deal> deal;
+  private List<Deal> deals;
+
+  public Business(BusinessDto businessDto) {
+    this.setName(businessDto.getName());
+    this.setAddress(businessDto.getAddress());
+    this.setTelephone(businessDto.getTelephone());
+    this.setEmail(businessDto.getEmail());
+  }
 }

@@ -4,6 +4,7 @@ import com.jamesvongampai.prodms.accounts.dtos.AccountDto;
 import com.jamesvongampai.prodms.accounts.dtos.RoleDto;
 import com.jamesvongampai.prodms.accounts.models.Account;
 import com.jamesvongampai.prodms.accounts.models.Role;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;

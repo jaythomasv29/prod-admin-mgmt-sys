@@ -45,8 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     http.authorizeRequests().antMatchers("/login").permitAll();
     http.authorizeRequests().antMatchers("/accounts/auth/register").permitAll();
-    http.authorizeRequests().antMatchers("/accounts/all").permitAll();
-    http.authorizeRequests().antMatchers("/deals/all").permitAll();
+    http.authorizeRequests().antMatchers("/accounts/all", "/businesses/all", "deals/all").permitAll();
     http.authorizeRequests().antMatchers("/deals/add/**").hasAnyAuthority("ROLE_MANAGER");
     http.authorizeRequests().antMatchers(HttpMethod.POST, "/deals/add/**").hasAnyAuthority("ROLE_MANAGER", "ROLE_SUPER_ADMIN", "ROLE_USER");
     http.authorizeRequests().anyRequest().authenticated();

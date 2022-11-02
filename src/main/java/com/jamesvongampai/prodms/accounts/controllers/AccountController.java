@@ -5,6 +5,7 @@ import com.jamesvongampai.prodms.accounts.models.Account;
 import com.jamesvongampai.prodms.accounts.service.AccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,11 +18,14 @@ import java.util.List;
 @RequestMapping("/accounts")  //  base path
 @AllArgsConstructor
 public class AccountController {
-  AccountService accountService;
+  private AccountService accountService;
 
 
-  @PostMapping("/auth/register")
+  @PostMapping(value = "/auth/register", consumes = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<Account> registerAccount(@RequestBody AccountDto accountDto) {
+    System.out.println("ACCOUNT DTO DTO DTO DTO DTO");
+    System.out.println(accountDto);
+    System.out.println("------------");
     return new ResponseEntity<>(accountService.saveAccount(accountDto), HttpStatus.CREATED);
   }
 

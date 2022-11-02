@@ -8,11 +8,10 @@ import com.jamesvongampai.prodms.settings.models.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import javax.persistence.*;
-import java.math.BigInteger;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Account extends BaseEntity {
+public class Account extends BaseEntity implements Serializable{
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,9 +39,8 @@ public class Account extends BaseEntity {
   @ManyToMany(fetch = FetchType.EAGER)
   private List<Role> roles = new ArrayList<>();
 
-  @JsonIgnore
   @OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-  private List<Deal> deal;
+  private List<Deal> deal = new ArrayList<>();
 
   public Account(AccountDto accountDto) {
       this.setFullname(accountDto.getFullname());
